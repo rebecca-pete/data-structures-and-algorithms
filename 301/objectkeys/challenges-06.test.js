@@ -13,15 +13,9 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
-  for(let property in courseInfo) {
-    console.log(property, courseInfo[property]);
-  }
-
-//   let properties = Object.keys(obj);
-//   properties.forEach(property =>{
-//     console.log(property, courseInfo[property]);
-//   })
-// }
+  let result = Object.keys(obj);
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -75,8 +69,10 @@ let characters = [
   }
 ];
 
-const totalCharacters = (arr) => {
+const totalCharacters = (characters) => {
   // Solution code here...
+  return characters.length;
+  
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -85,7 +81,7 @@ CHALLENGE 3
 Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
 ------------------------------------------------------------------------------------------------ */
 
-const getHouses = (arr) => {
+const getHouses = (characters) => {
   let houses = [];
   // Solution code here...
   return houses;
@@ -176,7 +172,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('something specific', () => {
     expect(totalCharacters(characters)).toStrictEqual(7);
   });
