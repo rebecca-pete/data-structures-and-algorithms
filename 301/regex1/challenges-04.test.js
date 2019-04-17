@@ -32,7 +32,6 @@ const isCapitalized = (str) => {
 //   let regex = /\b(\w)/g;
   let regex = /\b[A-Z]+[a-z]+\b/g;
   return str.match(regex);
-  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,8 +44,7 @@ const citiesAtoJ = (arr) => {
   // Solution code here...
   let regex = /^[A-J]/ig; //looking for a string that begin with letters A-J
   let emptyArr = [];
-//   let exist = arr.match(regex);
-  //let regex = /^[A-J]/ig;
+
   arr.forEach(function(thing) {
     if (thing.match(regex)) {
       emptyArr.push(thing);
@@ -83,6 +81,7 @@ const matchMonth = (input) => {
       console.log('not in the array');
     }
   });
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -176,7 +175,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-x
+
 xdescribe('Testing challenge 4', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
