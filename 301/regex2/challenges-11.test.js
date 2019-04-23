@@ -33,18 +33,20 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 const validateEmail = (email) => {
   // Solution code here...
   //will pass tests 1-4
-  let regex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
+  let regex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3}))$/g;
 
   //will pass test 5
   let willPassFive =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3,}))$/g;
   
-  let result;
-  if (regex.test(email) === true) {
-    result = regex.test(email);
-  } else {
-    result = willPassFive.test(email); 
-  }
-  return result;
+  let regexBest = /^[A-Za-z0-9]+.?[A-Za-z0-9]+@[A-Za-z0-9]+.(net|com|net)/g; //need to verify
+
+  // let result;
+  // if (regex.test(email) === true) {
+  return regex.test(email);
+  // } else {
+  //   result = willPassFive.test(email); 
+  // }
+  // return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
