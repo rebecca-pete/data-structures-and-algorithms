@@ -15,17 +15,14 @@ const count = (target, input) => {
   // Solution code here...
   //target is the outer array
   //input is the initial value we are searching for
-  //arr is inner array
-  function checkInner(input) { //function to look for input
-    return input === 5;
+  target.reduce( acc, val) {
+    const checkArr = arr.reduce(acc, val) => {
+      if (val === 5) {
+        acc ++;
+      }
+      return acc;
+    }     
   }
-  let innerResult = arr.filter(checkInner); //checks individual array for input (for example, 5)
-
-  let result = target.reduce (checkInner (acc, arr) {
-    acc ++;
-    return acc;
-  })
-  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
