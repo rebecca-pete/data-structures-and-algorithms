@@ -10,6 +10,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  let results = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    let firstLetter = arr[i].charAt(0);
+    results.push(firstLetter);
+  }
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,6 +29,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
+  let smiley = ':)';
+  return arr.filter(string => string.includes(smiley));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,6 +43,18 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  let bigResult = [];
+  for (var i = 0; i < arr.length; i++){
+    // arr[i].slice()
+    let var1 = arr[i].substring(1,4);
+    let var2 = arr[i].substring(6,9);
+    let var3 = arr[i].substring(10,14);
+
+    let result = var1 + var2 + var3;
+
+    bigResult.push(result);
+  }
+  return bigResult;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +67,16 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  let newArr = '';
+  for (var i = 0; i < str.length; i++) {
+    if (i%2===1) {
+      let tally = str.charAt(i);
+      console.log(tally);
+      // newArr.push(tally);
+      newArr = newArr + tally;
+    }
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,7 +185,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return only the strings that contain smiley faces', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -165,7 +196,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return a standardized set of phone numbers', () => {
     const nums = ['(123) 456-7890', '(222) 222-2222'];
 
@@ -174,7 +205,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
