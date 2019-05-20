@@ -6,6 +6,7 @@ class LinkedList {
     }
 
     insert(value) {
+        // let node = new Node(value);
       if(!this.head){
           this.head = {
               value: value,
@@ -26,7 +27,7 @@ class LinkedList {
 
     }
 
-    printOut(){
+    print(){
         if(!this.head) return 'I\'m empty';
         let message = '';
 
@@ -43,12 +44,16 @@ class LinkedList {
 
 const students = new LinkedList();
 
-students.insert('Homer');
-students.insert('Maggie');
-students.insert('Lisa');
-students.insert('Marg');
-students.insert('Bart');
+students.insert('homer');
+students.insert('maggie');
+students.insert('lisa');
+students.insert('marg');
+students.insert('bart');
 
-console.log(students);
+console.log('This is students:', students);
+// console.log(students.next);
 
-students.printOut();
+
+students.print();
+
+module.exports = LinkedList;

@@ -4,12 +4,15 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "jest --coverage --version",
-        "watch": "jest --coverage --version --watchAll",
+        "start": "node linked-list.js",
+        "lint": "eslint **/*.js",
+        "test": "jest --verbose --coverage",
+        "watch": "jest --watchAll --verbose --coverage"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "eslint": "^5.16.0",
         "jest": "^22.4.4"
     }
 }
