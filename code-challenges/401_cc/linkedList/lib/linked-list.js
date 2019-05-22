@@ -59,16 +59,14 @@ class LinkedList {
 
   kFromEnd(k){
     //WILL NEED HELP FINISHING. NOT SURE HOW TO ASSIGN TAIL
-    // let node = new Node(value);
-    // if(!this.head){
-    //   this.head = {
-    //     value: value,
-    //     next: null
-    //   };
-    //   return;
-    // }
 
-    // let currentStudent = this.head; //start with the first student
+  
+    while(currentStudent.value !== k){ 
+      currentStudent = currentStudent.next; 
+    }
+
+    // if(current)
+
     // while(currentStudent.next !== null){ //while there is another student in the class
     //   currentStudent = currentStudent.next; //point at the next student
     // }
