@@ -1,5 +1,12 @@
 'use strict';
 
+class Node {
+  constructor(name) {
+    this.name = name;
+    this.next = next;
+  }
+}
+
 class Stack {
 
   constructor () {
