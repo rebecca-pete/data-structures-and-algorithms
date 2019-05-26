@@ -1,0 +1,23 @@
+{
+  "name": "node-apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "promises.test.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "jest": "^24.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node stacks-and-queues.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

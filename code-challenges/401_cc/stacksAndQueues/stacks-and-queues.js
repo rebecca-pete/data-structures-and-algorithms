@@ -1,69 +1,58 @@
 'use strict';
 
-import { isModuleDeclaration } from "@babel/types";
-
-//Node class
-class Node {
-
-  //When creating a new node, store its name
-  constructor (name) {
-    this.name = name;
-    this.value = value;
-    this.next = next;
-  }
-}
-
 class Stack {
 
-  constructor (name) {
-    this.top = top;
-    this.name = name;
-    this.value = value;
-    this.next = next;
+  constructor () {
+    //since the storage array represents a stack, front is the same as top. The front of the array is the top of the stack.
+    this.storage = [];
+    this.top = null;
+    this.length = 0;
   }
 
-  push(node) {
-    this.node = node;
+  push(entry) {
+    //since the storage array represents a stack, front is the same as top. The front of the array is the top of the stack.
+    this.top = entry;
+    return this.length = this.storage.push(entry); //.push returns the length of the array
+  }
+
+  peek() {
+    return this.top;
+    // return this.storage[this.length -1] || null;
   }
   pop() {
-
-  }
-  peek() {
-
+    let result = this.storage.pop() || null;
+    this.top = this.storage[this.storage.length -1] || null;
+    //&& REQUIRES everything to be truthy and will short circuit as soon as it finds something falsy
+    result && this.length--;
+    return result;
   }
 }
 
 class Queue {
-
-  constructor(name) {
-    this.front = front;
+  constructor() {
+    this.length = 0;
+    this.storage = [];
+    // this.top = null; 
+    // this.front = null; 
   }
-  enqueue() {
-
-  }
-  dequeue() {
-
+  enqueue(entry) {
+    //since the storage array represents a queue, the front of the array is the same as the front of the queue
+    //unshift adds one or more items at the beginning of an array
+    //put at the beginning so that it is seen at the front of the array, not sure why ***
+    this.length ++;
+    return this.storage.unshift(entry);
+    // this.top = node; //or null?
   }
   peek() {
-
+    return this.storage[0];
+  }
+  dequeue() {
+  //since the storage array represents a queue, the front of the array is the same as the front of the queue.
+    this.length && this.length --;
+    return this.storage.pop() || null;
   }
 
 }
 
-class Node extends Stack {
-    push() {
+module.exports = {Stack, Queue};
 
-    }
-    pop() {
-
-    }
-    peek() {
-
-    }
-}
-
-class Node extends Queue {
-
-}
-
-module.exports = Node;
