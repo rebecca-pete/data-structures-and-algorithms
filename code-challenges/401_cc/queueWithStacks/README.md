@@ -15,3 +15,5 @@ Push and pop values into and out of the two stacks to manipulate order.
 
 ## Solution
 See code.
+![Image of CC-11]
+(https://github.com/rebecca-pete/data-structures-and-algorithms/blob/queue_with_stacks/code-challenges/401_cc/queueWithStacks/assets/CC-11.JPG)
