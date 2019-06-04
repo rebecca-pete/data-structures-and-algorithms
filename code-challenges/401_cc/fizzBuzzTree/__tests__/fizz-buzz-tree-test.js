@@ -8,3 +8,5 @@ describe('node', () => {
     if(node.val === number)
     expect(node instanceof Node).toBeTruthy();
   });
+});
+
