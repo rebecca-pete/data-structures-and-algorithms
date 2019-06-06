@@ -1,7 +1,7 @@
 'use strict';
 
 class Node {
-    constructor () {
+    constructor (node) {
         this.value = value;
         this.leftChild = leftChild;
         this.rightChild = rightChild;
@@ -11,23 +11,57 @@ class Binary Tree {
     constructor () {
         this.value = value;
     }
-    preOrder {
-
+    //Root, Left, Right
+    preOrder (node.value) {
+        if(node.value !== null) {
+            console.log(node.value);
+            preOrder(node.leftChild);
+            preOrder(node.rightChild);
+            return;
+        }
+    }
+    //Left, Root, Right
+    inOrder (node.value) {
+        if (node.leftChild !== null) {
+          inOrder(node.leftChild);
+        }
+        console.log(node.value);
+        if (node.rightChild !== null) {
+          inOrder(node.rightChild);
+        }
     },
-    inOrder {
-
-    },
-    postOrder {
-
-    },
+        //Left, Right, Root
+    postOrder (node.value) {
+        if (node.leftChild !== null) {
+          inOrder(node.leftChild);
+        }
+        if (node.rightChild !== null) {
+         inOrder(node.rightChild);
+        }
+        console.log(node.value);
+    }
 }
+
+//in process, stretch
 class Binary Search Tree {
     constructor () {
         this.value = value;
     }
     add(value) {
-
-    },
+        if(node.value === null){
+        return null;
+        }
+        while (!node.leftChild && !node.rightChild) {
+            let node.leftChild = node.value;
+        }
+        while (node.leftChild < node.value){
+            let node.rightChild = node.value;
+        }
+        while (node.rightChild > node.value){
+            let node.leftChild = node.value;
+        }
+    };
+//incomplete
     contains(value) {
 
     }
