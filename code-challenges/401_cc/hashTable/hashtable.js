@@ -4,7 +4,7 @@ class HashTable {
   constructor(){
     this.LENGTH = 100;
     this.data = new Array(this.LENGTH);
-    for(let i = 0; i < this.LENGTH - 1; i++){
+    for(let i = 0; i < this.LENGTH; i++){
       this.data[i] = {};
     }
   }
