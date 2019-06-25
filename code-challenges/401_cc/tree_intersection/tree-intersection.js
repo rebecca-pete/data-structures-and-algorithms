@@ -5,7 +5,7 @@
  *
  * Complexity:
  *    Time: O(n)
- *    Space: O(n)
+ *    Space: O(lgn)
  *
  * @param {Binary Tree} treeOne
  * @param {Binary Tree} treeTwo
