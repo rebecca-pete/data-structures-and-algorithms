@@ -1,5 +1,5 @@
 # Challenge Summary
-Code Challenge 34
+Code Challenge 33
 
 ## Challenge Description
 Write a function that LEFT JOINs two hashmaps into a single data structure.
@@ -27,5 +27,5 @@ Avoid utilizing any of the library methods available to your language.
  });
 
 ## Solution
-![](./assets/Code_Challenge_34_v1.JPG)
-![](./assets/Code_Challenge_34_v2.JPG)
+![](./assets/Code_Challenge_33_v1.JPG)
+![](./assets/Code_Challenge_33_v2.JPG)
