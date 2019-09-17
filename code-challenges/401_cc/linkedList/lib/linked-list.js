@@ -96,8 +96,11 @@ class LinkedList {
 const students = new LinkedList();
 
 students.insert('homer');
+console.log(students)
 students.insert('maggie');
+console.log(students.head.next)
 students.insert('lisa');
+console.log(students.head.next)
 students.insert('marg');
 students.insert('bart');
 

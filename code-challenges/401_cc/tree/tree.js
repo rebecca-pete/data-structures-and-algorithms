@@ -61,8 +61,21 @@ class Binary Search Tree {
             let node.leftChild = node.value;
         }
     };
-//incomplete
+    //contains is incomplete
     contains(value) {
 
+    }//almost there
+    findLargest() {
+        const maxValue = 0;
+        const Q = new Queue ();
+            Q.enqueue(root);
+            while(Q.length > 0) {
+            let current = Q.dequeue();
+            if(current > maxValue) {
+                let maxValue = current;
+            }
+            }
+        Q.enqueue(current.left);
+        Q.enqueue(current.right);
     }
 }
