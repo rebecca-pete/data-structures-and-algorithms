@@ -1,93 +1,153 @@
 'use strict';
 
+const Node = require('./node.js');
+
 class LinkedList {
   constructor(){
     this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 
   insert(value) {
-    // let node = new Node(value);
-    if(!this.head){
-      this.head = {
-        value: value,
-        next: null
-      };
-      return;
+
+    if(!value && value !== 0) throw new Error (`The given value is invalid.`);
+    let newHead = new Node(value, this.head);
+    if(!this.head && !this.tail ){
+      this.tail = newHead;
     }
-
-    let currentStudent = this.head; //start with the first student
-    while(currentStudent.next !== null){ //while there is another student in the class
-      currentStudent = currentStudent.next; //point at the next student
-    }
-
-    currentStudent.next = {
-      value: value,
-      next: null
-    };
-
+    this.head = newHead;
+    this.length++;
   }
 
+  includes(value){
+    try {
+      let current = this.head;
+      while(current !== null){
+        if(current.value === value){
+          return true;
+        }
+        current = current.next;
+      }
+      return false;
+    } catch(error){
+      throw new Error(`Error. Please verify the value passed is valid.`);
+    }
+  }
+
+  //Becky - this method adds a value to the end of the linked list
   append(value){
-    let currentStudent = this.head;
-    while(currentStudent.next !== null){
-      currentStudent = currentStudent.next;
+    if(value || value === 0){
+      if(!this.head && !this.tail){
+        this.head = new Node(value, null);
+        this.tail = this.head;
+      } else {
+        this.tail.next = new Node(value, null);
+        this.tail = this.tail.next;
+      }
+      this.length++;
+    } else {
+      throw(`Invalid input`);
     }
-    currentStudent.next = new Node(value)
-    currentStudent.next.next = null;
   }
 
-  insertBefore(existingVal, newVal){
-    let currentStudent = this.head;
-    while(currentStudent.next && currentStudent.next.value !== existingVal){
+  insertBefore(value, newVal){
+    if(value || value === 0){
       let newNode = new Node(newVal);
-      newNode.next = currentStudent.next;
-      currentStudent.next = newNode;
-      return;
+
+      //Becky - this block of code addresses inserting the passed value at the head of the linked list
+      if(this.head.value === value){
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
+        return;
+      }
+
+      let current = this.head;
+      while(current !== null){
+        if(current.next && current.next.value === value) {
+          newNode.next = current.next;
+          current.next = newNode;
+          this.length++;
+          return;
+        } else {
+          current = current.next;
+        }
+      }
+      throw `This is an exception, dummy`;
     }
-    return 'Exception';
-  }
-  insertAfter(existingVal, newVal){
-    let currentStudent = this.head;
-    while (currentStudent.value !== existingVal){
-      let newNode = newNode(newVal)
-      newNode.next = currentStudent.next;
-      currentStudent.next = newNode;
-      return;
-    }
-    return 'Exception';
+    throw `This is an invalid input`;
   }
 
+  insertAfter(value, newVal){
+    if(value || value === 0){
+      let current = this.head;
+
+      //Becky - may need to verify operator
+      while(current !== null){
+        if(current.value === value){
+          let newNode = new Node(newVal, current.next);
+          current.next = newNode;
+          if(current === this.tail){
+            this.tail = newNode;
+          }
+          this.length++;
+          return;
+        } else {
+          current = current.next;
+        }
+      }
+      throw `This is an Exception, dummy`;
+    }
+    throw `This is an Invalid Input`;
+  }
+
+  kFromEnd(k){
+    if(typeof k !== 'number' || k > this.length - 1 || k < 0){
+      throw `This is an Exception`;
+    }
+    if (k === 0) { return this.tail.value; }
+    let current = this.head;
+    let i = this.length - k - 1;
+    while( i > 0){
+      current = current.next;
+      i -= 1;
+    }
+    return current.value;
+  }
+
+//Becky - need to verify
   print(){
-    if(!this.head) return 'I\'m empty';
-    let message = '';
+    try {
+      let collection = [];
+      let current = this.head;
 
-    let currentStudent = this.head;
-    message +=` ${currentStudent.value}`;
-    while(currentStudent.next !== null) { //while there is a next student
-      currentStudent = currentStudent.next;
-      message +=` ${currentStudent.value}`;
+      while(current !== null){
+        collection.push(current.value);
+        current = current.next;
+      }
+      return collection;
+    } catch(error) {
+      throw new Error(`Encountered error when attempting to print linked list.`);
     }
-    console.log(message);
-    return message;
   }
-}
 
-const students = new LinkedList();
+// const students = new LinkedList();
 
-students.insert('homer');
-students.insert('maggie');
-students.insert('lisa');
-students.insert('marg');
-students.insert('bart');
+// students.insert('homer');
+// students.insert('maggie');
+// students.insert('lisa');
+// students.insert('marg');
+// students.insert('bart');
 
-console.log('This is students:', students);
-// console.log(students.next);
+// console.log('This is students:', students);
+// // console.log(students.next);
 
-console.log('This is APPEND milhouse:', students.append('milhouse')); //for the purpose of testing, does the value have to be defined? If not, use this parameter.
-console.log('This is APPEND bart:', students.append('bart'));//Otherwise, use this.
-console.log('This is insert maggie BEFORE marg:', students.insertBefore('marg', 'maggie'));
-console.log('This is insert bart AFTER lisa:', students.insertAfter('lisa', 'bart')); //adding another bart object
-//why should parameters be strings?
-students.print();
+// console.log('This is APPEND milhouse:', students.append('milhouse')); //for the purpose of testing, does the value have to be defined? If not, use this parameter.
+// console.log('This is APPEND bart:', students.append('bart'));//Otherwise, use this.
+// console.log('This is insert maggie BEFORE marg:', students.insertBefore('marg', 'maggie'));
+// console.log('This is insert bart AFTER lisa:', students.insertAfter('lisa', 'bart')); //adding another bart object
+// //why should parameters be strings?
+// students.print();
 
 module.exports = LinkedList;
