@@ -3,8 +3,12 @@
   "version": "0.0.1",
   "description": "this will be sooooo cool",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
 }
