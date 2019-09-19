@@ -9,6 +9,7 @@ class LinkedList {
     this.length = 0;
   }
 
+  //Becky - this method inserts a value at the beginning of the linked list
   insert(value) {
 
     if(!value && value !== 0) throw new Error (`The given value is invalid.`);
@@ -116,7 +117,6 @@ class LinkedList {
     return current.value;
   }
 
-//Becky - need to verify
   print(){
     try {
       let collection = [];
@@ -131,23 +131,5 @@ class LinkedList {
       throw new Error(`Encountered error when attempting to print linked list.`);
     }
   }
-
-// const students = new LinkedList();
-
-// students.insert('homer');
-// students.insert('maggie');
-// students.insert('lisa');
-// students.insert('marg');
-// students.insert('bart');
-
-// console.log('This is students:', students);
-// // console.log(students.next);
-
-// console.log('This is APPEND milhouse:', students.append('milhouse')); //for the purpose of testing, does the value have to be defined? If not, use this parameter.
-// console.log('This is APPEND bart:', students.append('bart'));//Otherwise, use this.
-// console.log('This is insert maggie BEFORE marg:', students.insertBefore('marg', 'maggie'));
-// console.log('This is insert bart AFTER lisa:', students.insertAfter('lisa', 'bart')); //adding another bart object
-// //why should parameters be strings?
-// students.print();
 
 module.exports = LinkedList;
